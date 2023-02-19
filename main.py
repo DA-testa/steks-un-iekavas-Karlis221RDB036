@@ -10,21 +10,36 @@ def are_matching(left, right):
 
 
 def find_mismatch(text):
+    global opening_brackets_stack
     opening_brackets_stack = []
     for i, next in enumerate(text):
         if next in "([{":
             # Process opening bracket, write your code here
-            pass
+            opening_brackets_stack.append(Bracket(next, i+1))
 
         if next in ")]}":
             # Process closing bracket, write your code here
-            pass
-
+            if not opening_brackets_stack or not are_matching(opening_brackets_stack[-1].char, next):
+                opening_brackets_stack[-1] = opening_brackets_stack[-1]._replace(position=i+1)
+                return 0
+            else:
+                opening_brackets_stack.pop()
+            
 
 def main():
     text = input()
+    if text == "I":
+        text = input()
+    else:
+        filename = input()
+        with open(filename) as f:
+            text = f.read()
     mismatch = find_mismatch(text)
     # Printing answer, write your code here
+    if not opening_brackets_stack:
+        print("Success")
+    else:
+        print(opening_brackets_stack[-1].position)
 
 
 if __name__ == "__main__":
