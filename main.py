@@ -28,7 +28,7 @@ def find_mismatch(text):
 
 def main():
     text = input()
-    if text[0] == "I":
+    if "I\n" in text:
         text = text[2::]
     print(text)
     mismatch = find_mismatch(text)
