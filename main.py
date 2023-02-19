@@ -28,6 +28,7 @@ def find_mismatch(text):
 
 def main():
     text = input()
+    print(text)
     if "I\n" in text:
         text = text[2::]
     print(text)
