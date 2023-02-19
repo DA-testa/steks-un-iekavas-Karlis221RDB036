@@ -28,12 +28,9 @@ def find_mismatch(text):
 
 def main():
     text = input()
-    # if text == "I":
-    #     text = input()
-    # else:
-    #     filename = input()
-    #     with open(filename) as f:
-    #         text = f.read()
+    if text[0] == "I":
+        text = text[2::]
+    print(text)
     mismatch = find_mismatch(text)
     # Printing answer, write your code here
     if not opening_brackets_stack:
