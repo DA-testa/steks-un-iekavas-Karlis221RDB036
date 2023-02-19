@@ -30,6 +30,7 @@ def main():
     text = input()
     if "I" in text:
         text = input()
+    print(text)
     mismatch = find_mismatch(text)
     # Printing answer, write your code here
     if not opening_brackets_stack:
